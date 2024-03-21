@@ -21,6 +21,11 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src",
+    "next-env.d.ts",
+    "prismicio.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/api/preview.js"
   ]
 }

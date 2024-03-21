@@ -1,11 +1,20 @@
-import React from 'react'
-import { AppRoutes } from './Routes'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { Sidebar } from './Sidebar'
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppRoutes } from './Routes';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Sidebar } from './Sidebar';
+import { getCategories } from '../redux/categories-slice';
 
 
-const App: React.FC = () => {
+type AppProps = {};
+
+const App: React.FC<AppProps> = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
   return (
     <div className='app'>
       <Header />
@@ -17,6 +26,8 @@ const App: React.FC = () => {
 
       <Footer />
     </div>
-  )
-}
-export { App }
+  );
+};
+
+export { App };
+
